@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="FastAPI와 Supabase로 방문자 수를 기록하는 한 페이지 자기소개 사이트"
+    />
+    <title>김시민의 한 페이지 소개</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header" aria-label="사이트 머리말">
+        <a class="brand" href="#top">김시민</a>
+        <nav aria-label="페이지 안에서 이동하기">
+          <a href="#about">소개</a>
+          <a href="#interests">관심사</a>
+          <a href="#visitor">방문 기록</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow">GOYANG · SMART CITIZEN</p>
+            <h1 id="hero-title">
+              안녕하세요.<br />
+              고양에 사는 <span>김시민</span>입니다.
+            </h1>
+            <p class="hero-description">
+              동네를 더 즐겁게 바라보는 방법과 작은 기술 실험을 좋아합니다.
+              오늘은 AI와 함께 만든 첫 웹페이지를 소개합니다.
+            </p>
+            <a class="primary-action" href="#about">저를 소개할게요</a>
+          </div>
+
+          <div class="portrait-card" aria-label="김시민을 표현한 그래픽">
+            <div class="sun"></div>
+            <div class="city-line" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <p>MY<br />GOYANG<br />STORY</p>
+          </div>
+        </section>
+
+        <section id="about" class="content-section split-section">
+          <div>
+            <p class="section-number">01</p>
+            <h2>제가 좋아하는<br />일상의 장면들</h2>
+          </div>
+          <div class="body-copy">
+            <p>
+              아침에는 호수공원을 걷고, 주말에는 동네의 새로운 가게를
+              찾아봅니다. 익숙한 장소를 조금 다르게 기록하면 우리 도시를
+              이해하는 새로운 데이터가 된다고 생각합니다.
+            </p>
+            <p>
+              이 페이지도 그 작은 기록 중 하나입니다. 이름, 문장, 색상부터
+              하나씩 제가 결정하고 AI에게 필요한 부분만 부탁했습니다.
+            </p>
+          </div>
+        </section>
+
+        <section id="interests" class="content-section">
+          <div class="section-heading">
+            <div>
+              <p class="section-number">02</p>
+              <h2>요즘의 관심사</h2>
+            </div>
+            <p>제가 고른 세 가지 키워드입니다.</p>
+          </div>
+          <div class="interest-grid">
+            <article>
+              <span>01</span>
+              <h3>동네 산책</h3>
+              <p>익숙한 길에서 계절과 사람의 변화를 발견합니다.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>생활 기록</h3>
+              <p>사진과 짧은 문장으로 기억하고 싶은 순간을 남깁니다.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>작은 기술</h3>
+              <p>복잡한 기술을 내 생활에 맞는 간단한 도구로 바꿔 봅니다.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="visitor" class="visitor-section" aria-labelledby="visitor-title">
+          <div class="visitor-copy">
+            <p class="section-number light">03</p>
+            <h2 id="visitor-title">이 페이지의<br />방문 기록</h2>
+            <p>
+              브라우저가 FastAPI에 요청하면, FastAPI가 서버에 보관된 키로
+              Supabase의 숫자를 1 올립니다.
+            </p>
+          </div>
+
+          <div class="counter-card" aria-live="polite">
+            <div class="environment-pill" id="environment-pill">환경 확인 중</div>
+            <p class="counter-label">누적 방문</p>
+            <p class="counter-number"><span id="visitor-count">—</span><small>회</small></p>
+            <p class="counter-status" id="counter-status">서버에 연결하고 있어요.</p>
+            <div class="flow" aria-label="방문자 수가 이동하는 경로">
+              <span>브라우저</span><i>→</i><span>FastAPI</span><i>→</i><span>Supabase</span>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>AI와 함께 만들되, 방향은 내가 정한 첫 웹페이지.</p>
+        <a href="#top">맨 위로 ↑</a>
+      </footer>
+    </div>
+  </body>
+</html>
