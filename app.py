@@ -19,6 +19,20 @@ app = FastAPI(
 )
 
 
+def mount_public_files(application: FastAPI, directory: Path) -> None:
+    """Serve the local web page when the static directory is available.
+
+    Vercel serves public/** from its CDN and does not include that directory in
+    the Python function bundle, so the function must also import without it.
+    """
+    if directory.is_dir():
+        application.mount(
+            "/",
+            StaticFiles(directory=directory, html=True),
+            name="public",
+        )
+
+
 class VisitResponse(BaseModel):
     count: int
 
@@ -94,5 +108,4 @@ async def record_visit() -> VisitResponse:
 
 
 # API routes are declared first so this catch-all mount only handles the web page.
-# Locally FastAPI serves these files; Vercel can also serve public/** from its CDN.
-app.mount("/", StaticFiles(directory=PUBLIC_DIR, html=True), name="public")
+mount_public_files(app, PUBLIC_DIR)

@@ -1,3 +1,4 @@
+from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
 import app as app_module
@@ -31,3 +32,11 @@ def test_home_page_is_served() -> None:
 
     assert response.status_code == 200
     assert "김시민의 한 페이지 소개" in response.text
+
+
+def test_missing_public_directory_does_not_block_app_startup(tmp_path) -> None:
+    test_app = FastAPI()
+
+    app_module.mount_public_files(test_app, tmp_path / "missing-public")
+
+    assert all(route.name != "public" for route in test_app.routes)
