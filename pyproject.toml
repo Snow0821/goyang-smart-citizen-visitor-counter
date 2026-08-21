@@ -1,0 +1,20 @@
+[project]
+name = "goyang-smart-citizen-visitor-counter"
+version = "0.1.0"
+description = "A one-page introduction site with a FastAPI and Supabase visitor counter"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[standard]>=0.136.0,<1.0",
+    "httpx[socks]>=0.28.1,<1.0",
+    "python-dotenv>=1.1.1,<2.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1,<9.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
